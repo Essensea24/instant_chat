@@ -1,0 +1,47 @@
+<h1> <%=current_user.email%>-Profile</h1>
+<h2>Your contacts </h2>
+<div>
+	<% for friendship in current_user.friendships %>
+		<h4><%= friendship.name%></h4>
+		<p>Contact Info: <strong><%= friendship.friend.email %></strong></p>
+		<%= link_to "remove", friendship, :method => :delete %>
+		<%= link_to "Edit", edit_friendship_path(friendship) %>
+	
+	<% end %> 
+</div>
+
+<h2> User who added you to their contact</h2>
+<div>
+<ul>
+	<% for inverse_friendship in current_user.inverse_friendships %>
+		<p><%= inverse_friendship.name%>
+		<p>Contact Info:<%= inverse_friendship.user.email %></p>
+	<% end %>
+</ul>
+</div>
+
+<h2> You have <%= current_user.meetings.count + current_user.inverse_meetings.count%> meetings</h2>
+	<div>
+	<% for meeting in current_user.meetings %>
+	Send to : <%= meeting.receiver.email %>
+	<h4><%= meeting.name %></h4>
+	<p> Where - <%= meeting.location %><br></p>
+	<p> When - <%= meeting.time %><br></p>
+	<p> Detail <%= meeting.description %><br></p>
+	<%end%>
+	<%= link_to "remove", friendship, :method => :delete %>
+	<%= link_to "Edit", edit_meeting_path(meeting) %>
+	</div>
+
+<h2> Others</h2>
+<div>
+<ul>
+	<% for inverse_meeting in current_user.inverse_meetings %>
+		<h4><%= inverse_meeting.name%></h4><br>
+		<p>Where - <%= inverse_meeting.location%></p><br>
+		<p>When  - <%= inverse_meeting.time%></p><br>
+		<p>Detail - <%= inverse_meeting.description%></p><br>
+		<p>Send by:<%= inverse_meeting.user.email %></p>
+	<% end %>
+</ul>
+</div>

@@ -21,6 +21,22 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
+#image upload
+gem 'paperclip', '~> 4.1'
+gem 'therubyracer'
+gem 'devise'
+#to change according to user's time zone
+# gem 'browser-timezone-rails'
+gem "omniauth"
+
+gem "figaro"
+
+gem "omniauth-facebook"
+gem 'omniauth-google-oauth2'
+gem 'omniauth-digitalocean'
+#to grab api data
+gem 'httparty', '~> 0.11.0'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password

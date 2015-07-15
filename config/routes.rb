@@ -1,5 +1,29 @@
 Rails.application.routes.draw do
-  root "statics#home"
+  resources :controllers
+resources :meetings
+resources :friendships
+
+ # get "friendships" => "friendships#index", as: :friendships
+ # get "friendships/new" => "friendships#new", as: :new_friendship
+ # get "friendships/:id" => "friendships#show", as: :friendship
+ # post "friendship" => "friendships#create"
+ # get "users/:id/friendships/:id/edit" => "friendship#edit", as: :edit_friendship
+ # patch "friendships/:id" => "friendships#update", as: :update_friendship
+ # delete "friendships/:id" => "friendships#destroy"
+
+devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+ 
+ root "statics#home"
+  get 'users/index' => "users#index", as: :users
+  get 'users/:id' => "users#show", as: :user
+
+
+
+
+  
+  
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

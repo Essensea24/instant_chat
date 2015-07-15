@@ -1,1 +1,8 @@
-<h1> Welcome to Home </h1>
+<p id="notice"><%= notice %></p>
+<% if current_user %>
+Hello <%= current_user.firstname%><br>
+<%= current_user.email %><br>
+<%= current_user.firstname %><br>
+<%= current_user.lastname %><br>
+<%= image_tag current_user.image%><br>
+<% end%>

@@ -1,0 +1,9 @@
+<% @users.each do |u| %>
+	<tr class = "usershow">
+		<td class = "usershow">Useremail:<strong><%= u.email %></strong></td><br>
+		<td class = "usershow"><%= image_tag u.image(:large)%></td><br>
+		<%= link_to "Add to your contact", friendships_path(:friend_id => u), :method => :post %>
+		<%= link_to "Add Meeting", meetings_path(:receiver_id => u), :method => :post %>
+      		
+      	</tr>
+<% end %>
